@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniEvents Portal - Skill Development Laboratory Assessment</title>
+    <!-- External Style Sheet -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header Section with Sticky Navigation -->
+    <header class="site-header">
+        <div class="logo-container">
+            <h1>UniEvents Portal</h1>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#catalogue">Events</a></li>
+                <li><a href="#register">Register</a></li>
+                <li><a href="#footer">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero-section">
+        <!-- Inline CSS Requirement -->
+        <div class="hero-content" style="background: rgba(15, 23, 42, 0.75); padding: 2.5rem; border-radius: 12px;">
+            <h2>Innovate. Create. Elevate.</h2>
+            <p>Campaign Period: August 10 - September 15, 2026. Join high-impact technical workshops, hackathons, and cultural fests.</p>
+            <a href="#register" class="cta-button">Register Now</a>
+        </div>
+    </section>
+
+    <!-- Event Catalogue Section -->
+    <main class="container">
+        <section id="catalogue" class="event-catalogue">
+            <h2 class="section-title">Upcoming Event Catalogue</h2>
+            
+            <div class="grid-container">
+                
+                <!-- Event Card 1: Technical -->
+                <article class="event-card technical">
+                    <span class="status-badge">Open</span>
+                    <div class="card-inner">
+                        <h3>AI & Deep Learning Hackathon</h3>
+                        <p class="category">Technical Workshop</p>
+                        <p class="date-time">Date: Aug 22, 2026 | 09:00 AM</p>
+                        <p class="venue">Venue: Tech Auditorium Block A</p>
+                        <p class="description">Build next-gen neural networks and compete for grand cash prizes with industry mentors.</p>
+                        <a href="#register" class="register-link-btn">Select Event</a>
+                    </div>
+                </article>
+
+                <!-- Event Card 2: Cultural -->
+                <article class="event-card cultural">
+                    <span class="status-badge">Filling Fast</span>
+                    <div class="card-inner">
+                        <h3>Synchrony Annual Cultural Fest</h3>
+                        <p class="category">Cultural Event</p>
+                        <p class="date-time">Date: Aug 30, 2026 | 04:00 PM</p>
+                        <p class="venue">Venue: Open Air Theatre</p>
+                        <p class="description">Experience breathtaking dance, music performances, and dramatic arts from across campuses.</p>
+                        <a href="#register" class="register-link-btn">Select Event</a>
+                    </div>
+                </article>
+
+                <!-- Event Card 3: Placement -->
+                <article class="event-card placement">
+                    <span class="status-badge">Open</span>
+                    <div class="card-inner">
+                        <h3>Global Tech Placement Masterclass</h3>
+                        <p class="category">Placement Training</p>
+                        <p class="date-time">Date: Sep 05, 2026 | 10:30 AM</p>
+                        <p class="venue">Venue: Placement Cell Hall 2</p>
+                        <p class="description">Comprehensive mock interviews, resume tuning, and direct corporate networking sessions.</p>
+                        <a href="#register" class="register-link-btn">Select Event</a>
+                    </div>
+                </article>
+
+                <!-- Event Card 4: Sports -->
+                <article class="event-card sports">
+                    <span class="status-badge">Closing Soon</span>
+                    <div class="card-inner">
+                        <h3>Inter-Collegiate Esports Championship</h3>
+                        <p class="category">Sports Event</p>
+                        <p class="date-time">Date: Sep 12, 2026 | 01:00 PM</p>
+                        <p class="venue">Venue: University Indoor Stadium</p>
+                        <p class="description">Battle it out in competitive multiplayer tactical esports tournaments and claim the championship trophy.</p>
+                        <a href="#register" class="register-link-btn">Select Event</a>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Internal CSS Demonstration Section -->
+        <section class="announcement-banner">
+            <style>
+                .announcement-banner {
+                    background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+                    color: #ffffff;
+                    padding: 1.5rem;
+                    border-radius: 8px;
+                    text-align: center;
+                    margin: 3rem 0;
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                }
+                .announcement-banner h3 {
+                    font-size: 1.5rem;
+                    margin-bottom: 0.5rem;
+                }
+            </style>
+            <h3>Important Notice for All Participants</h3>
+            <p>Ensure your university identity cards are validated before entering individual event blocks. On-spot registrations close 1 hour prior to event launch.</p>
+        </section>
+
+        <!-- Registration Form Section -->
+        <section id="register" class="registration-section">
+            <h2 class="section-title">Event Registration Form</h2>
+            <form action="#" method="POST" class="reg-form">
+                <div class="form-group">
+                    <label for="studentName">Student Name:</label>
+                    <input type="text" id="studentName" name="studentName" required placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="registerNo">Register Number:</label>
+                    <input type="text" id="registerNo" name="registerNo" required placeholder="e.g., ITA02104">
+                </div>
+
+                <div class="form-group">
+                    <label for="department">Department:</label>
+                    <input type="text" id="department" name="department" required placeholder="e.g., Information Technology">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address:</label>
+                    <input type="email" id="email" name="email" required placeholder="student@university.edu">
+                </div>
+
+                <div class="form-group">
+                    <label for="eventSelect">Select Event:</label>
+                    <select id="eventSelect" name="eventSelect" required>
+                        <option value="">-- Choose an Event --</option>
+                        <option value="ai-hackathon">AI & Deep Learning Hackathon</option>
+                        <option value="cultural-fest">Synchrony Annual Cultural Fest</option>
+                        <option value="placement-masterclass">Global Tech Placement Masterclass</option>
+                        <option value="esports">Inter-Collegiate Esports Championship</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn">Complete Registration</button>
+            </form>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer id="footer" class="site-footer">
+        <div class="footer-content">
+            <p>&copy; 2026 University Event Portal. All rights reserved.</p>
+            <p>Contact Support: <a href="mailto:support@unievent.edu">support@unievent.edu</a> | Phone: +1 (555) 382-9011</p>
+            <ul class="footer-links">
+                <li><a href="#hero">Privacy Policy</a></li>
+                <li><a href="#hero">Terms of Service</a></li>
+                <li><a href="#hero">Campus Map</a></li>
+            </ul>
+        </div>
+    </footer>
+
+</body>
+</html>
