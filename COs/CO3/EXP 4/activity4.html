@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Browser Information Dashboard</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #f4f7fa;
+            color: #172033;
+        }
+
+        /* HEADER */
+
+        .header {
+            background: #10243e;
+            color: white;
+            padding: 20px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo {
+            width: 45px;
+            height: 45px;
+            background: #d8b36a;
+            color: #10243e;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .brand h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .brand p {
+            margin: 3px 0 0;
+            color: #b8c5d5;
+            font-size: 12px;
+        }
+
+        .live {
+            color: #b9d7c7;
+            font-size: 13px;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 9px;
+            height: 9px;
+            background: #36b77b;
+            border-radius: 50%;
+            margin-right: 6px;
+        }
+
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(
+                120deg,
+                #10243e,
+                #1d5260
+            );
+
+            color: white;
+            text-align: center;
+            padding: 48px 20px;
+        }
+
+        .hero span {
+            color: #e3c477;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .hero h1 {
+            margin: 10px 0;
+            font-size: 36px;
+        }
+
+        .hero p {
+            margin: 0 auto;
+            max-width: 650px;
+            color: #cbd7e3;
+            font-size: 14px;
+        }
+
+
+        /* MAIN */
+
+        .container {
+            max-width: 1100px;
+            margin: 35px auto;
+            padding: 0 20px;
+        }
+
+
+        /* URL CARD */
+
+        .url-card {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 13px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 18px rgba(20,36,59,0.06);
+        }
+
+        .url-card h2 {
+            margin: 0 0 12px;
+            font-size: 18px;
+        }
+
+        .url {
+            background: #f5f7f9;
+            border: 1px solid #e0e5eb;
+            border-radius: 8px;
+            padding: 13px;
+            font-family: Consolas, monospace;
+            font-size: 12px;
+            color: #596579;
+            word-break: break-all;
+        }
+
+
+        /* STATUS */
+
+        .status {
+            display: inline-block;
+            margin-top: 13px;
+            padding: 7px 13px;
+            border-radius: 20px;
+            background: #eaf7f0;
+            color: #237d59;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        /* DASHBOARD */
+
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid #e0e6ed;
+            border-radius: 13px;
+            padding: 22px;
+            min-height: 160px;
+            box-shadow: 0 5px 18px rgba(20,36,59,0.05);
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 9px 24px rgba(20,36,59,0.09);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-title {
+            color: #707c8e;
+            font-size: 11px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .icon {
+            width: 35px;
+            height: 35px;
+            background: #edf4f5;
+            color: #207a82;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+        }
+
+        .value {
+            margin-top: 20px;
+            color: #172033;
+            font-size: 25px;
+            font-weight: bold;
+        }
+
+        .description {
+            margin-top: 6px;
+            color: #8993a3;
+            font-size: 11px;
+        }
+
+
+        /* LIVE MONITOR */
+
+        .monitor {
+            background: #10243e;
+            color: white;
+            margin-top: 20px;
+            padding: 25px;
+            border-radius: 13px;
+        }
+
+        .monitor h2 {
+            margin: 0;
+            font-size: 18px;
+        }
+
+        .monitor p {
+            color: #adbdce;
+            font-size: 12px;
+        }
+
+        .dimensions {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .dimension {
+            background: rgba(255,255,255,0.06);
+            padding: 15px;
+            border-radius: 8px;
+        }
+
+        .dimension small {
+            color: #a5b5c7;
+            font-size: 10px;
+        }
+
+        .dimension strong {
+            display: block;
+            color: #e4c77c;
+            margin-top: 6px;
+            font-size: 20px;
+        }
+
+
+        /* DETAILS */
+
+        .details {
+            background: white;
+            margin-top: 20px;
+            border: 1px solid #e0e6ed;
+            border-radius: 13px;
+            padding: 25px;
+            box-shadow: 0 5px 18px rgba(20,36,59,0.05);
+        }
+
+        .details h2 {
+            margin: 0 0 5px;
+            font-size: 18px;
+        }
+
+        .details p {
+            color: #7b8697;
+            font-size: 13px;
+        }
+
+        .detail-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 13px 5px;
+            border-bottom: 1px solid #edf0f3;
+        }
+
+        .detail-name {
+            color: #697589;
+            font-size: 13px;
+        }
+
+        .detail-value {
+            color: #1c293d;
+            font-family: Consolas, monospace;
+            font-size: 12px;
+            text-align: right;
+            max-width: 60%;
+            word-break: break-word;
+        }
+
+
+        /* EXTRA SPACE FOR SCROLL */
+
+        .scroll-area {
+            margin-top: 20px;
+            background: #e9eef2;
+            border-radius: 13px;
+            padding: 25px;
+            min-height: 250px;
+        }
+
+        .scroll-area h2 {
+            margin-top: 0;
+        }
+
+        .scroll-area p {
+            color: #657286;
+            line-height: 1.8;
+            font-size: 13px;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            text-align: center;
+            margin: 30px 0;
+            color: #8993a3;
+            font-size: 11px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media(max-width: 850px) {
+
+            .dashboard {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .dimensions {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+
+        @media(max-width: 600px) {
+
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+
+            .dimensions {
+                grid-template-columns: 1fr;
+            }
+
+            .live {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="brand">
+
+        <div class="logo">
+            B
+        </div>
+
+        <div>
+
+            <h2>Browser Analytics</h2>
+
+            <p>Client Environment Dashboard</p>
+
+        </div>
+
+    </div>
+
+
+    <div class="live">
+
+        <span class="dot"></span>
+
+        Live Monitoring
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <span>
+        JAVASCRIPT WINDOW OBJECT
+    </span>
+
+    <h1>
+        Browser Information Dashboard
+    </h1>
+
+    <p>
+        A real-time view of your browser, screen,
+        viewport, network and current window environment.
+    </p>
+
+</section>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <!-- URL -->
+
+    <div class="url-card">
+
+        <h2>
+            Current Browser Location
+        </h2>
+
+        <div
+            class="url"
+            id="currentURL">
+
+            Loading...
+
+        </div>
+
+        <div
+            class="status"
+            id="connectionStatus">
+
+            ● Checking connection...
+
+        </div>
+
+    </div>
+
+
+    <!-- DASHBOARD -->
+
+    <div class="dashboard">
+
+
+        <!-- LANGUAGE -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <span class="card-title">
+                    BROWSER LANGUAGE
+                </span>
+
+                <div class="icon">
+                    A
+                </div>
+
+            </div>
+
+            <div
+                class="value"
+                id="language">
+
+                --
+
+            </div>
+
+            <div class="description">
+                navigator.language
+            </div>
+
+        </div>
+
+
+        <!-- SCREEN -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <span class="card-title">
+                    SCREEN SIZE
+                </span>
+
+                <div class="icon">
+                    ▣
+                </div>
+
+            </div>
+
+            <div
+                class="value"
+                id="screenSize">
+
+                --
+
+            </div>
+
+            <div class="description">
+                screen.width × screen.height
+            </div>
+
+        </div>
+
+
+        <!-- VIEWPORT -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <span class="card-title">
+                    VIEWPORT SIZE
+                </span>
+
+                <div class="icon">
+                    ◫
+                </div>
+
+            </div>
+
+            <div
+                class="value"
+                id="viewportSize">
+
+                --
+
+            </div>
+
+            <div class="description">
+                window.innerWidth × innerHeight
+            </div>
+
+        </div>
+
+
+        <!-- ONLINE -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <span class="card-title">
+                    NETWORK STATUS
+                </span>
+
+                <div class="icon">
+                    ●
+                </div>
+
+            </div>
+
+            <div
+                class="value"
+                id="onlineStatus">
+
+                --
+
+            </div>
+
+            <div class="description">
+                navigator.onLine
+            </div>
+
+        </div>
+
+
+        <!-- SCROLL -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <span class="card-title">
+                    SCROLL POSITION
+                </span>
+
+                <div class="icon">
+                    ↕
+                </div>
+
+            </div>
+
+            <div
+                class="value"
+                id="scrollPosition">
+
+                0 × 0
+
+            </div>
+
+            <div class="description">
+                window.scrollX / window.scrollY
+            </div>
+
+        </div>
+
+
+        <!-- PLATFORM -->
+
+        <div class="card">
+
+            <div class="card-header">
+
+                <span class="card-title">
+                    PLATFORM
+                </span>
+
+                <div class="icon">
+                    PC
+                </div>
+
+            </div>
+
+            <div
+                class="value"
+                id="platform"
+                style="font-size:18px;">
+
+                --
+
+            </div>
+
+            <div class="description">
+                navigator.platform
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LIVE WINDOW -->
+
+    <div class="monitor">
+
+        <h2>
+            Live Window Monitor
+        </h2>
+
+        <p>
+            Resize the browser window or scroll the page
+            to see these values update automatically.
+        </p>
+
+
+        <div class="dimensions">
+
+
+            <div class="dimension">
+
+                <small>
+                    WINDOW WIDTH
+                </small>
+
+                <strong id="windowWidth">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="dimension">
+
+                <small>
+                    WINDOW HEIGHT
+                </small>
+
+                <strong id="windowHeight">
+                    --
+                </strong>
+
+            </div>
+
+
+            <div class="dimension">
+
+                <small>
+                    SCROLL X
+                </small>
+
+                <strong id="scrollX">
+                    0
+                </strong>
+
+            </div>
+
+
+            <div class="dimension">
+
+                <small>
+                    SCROLL Y
+                </small>
+
+                <strong id="scrollY">
+                    0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- DETAILS -->
+
+    <div class="details">
+
+        <h2>
+            Browser Environment Details
+        </h2>
+
+        <p>
+            Information obtained from JavaScript
+            navigator, screen and window objects.
+        </p>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                Current URL
+            </span>
+
+            <span
+                class="detail-value"
+                id="detailURL">
+                --
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                Browser Language
+            </span>
+
+            <span
+                class="detail-value"
+                id="detailLanguage">
+                --
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                Platform
+            </span>
+
+            <span
+                class="detail-value"
+                id="detailPlatform">
+                --
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                User Agent
+            </span>
+
+            <span
+                class="detail-value"
+                id="userAgent">
+                --
+            </span>
+
+        </div>
+
+
+        <div class="detail-row">
+
+            <span class="detail-name">
+                Screen Resolution
+            </span>
+
+            <span
+                class="detail-value"
+                id="detailScreen">
+                --
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <!-- SCROLL DEMO -->
+
+    <div class="scroll-area">
+
+        <h2>
+            Scroll Position Demonstration
+        </h2>
+
+        <p>
+            Scroll vertically through this page and
+            observe the <b>Scroll Y</b> value in the
+            Live Window Monitor.
+        </p>
+
+        <p>
+            The dashboard uses
+            <b>window.scrollX</b> and
+            <b>window.scrollY</b> to determine the
+            current scroll position of the browser window.
+        </p>
+
+        <p>
+            You can also resize your browser window.
+            The viewport dimensions will change instantly
+            because the page listens for the
+            <b>resize event</b>.
+        </p>
+
+        <p>
+            This demonstrates how JavaScript can interact
+            with the browser environment through the
+            Window Object.
+        </p>
+
+    </div>
+
+
+    <footer>
+
+        Browser Information Dashboard
+        •
+        JavaScript Web Technology Lab
+
+    </footer>
+
+</div>
+
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+
+    /* =====================================
+       CURRENT URL
+       ===================================== */
+
+    document.getElementById(
+        "currentURL"
+    ).textContent =
+        window.location.href;
+
+
+    document.getElementById(
+        "detailURL"
+    ).textContent =
+        window.location.href;
+
+
+    /* =====================================
+       BROWSER LANGUAGE
+       ===================================== */
+
+    document.getElementById(
+        "language"
+    ).textContent =
+        navigator.language;
+
+
+    document.getElementById(
+        "detailLanguage"
+    ).textContent =
+        navigator.language;
+
+
+    /* =====================================
+       PLATFORM
+       ===================================== */
+
+    document.getElementById(
+        "platform"
+    ).textContent =
+        navigator.platform;
+
+
+    document.getElementById(
+        "detailPlatform"
+    ).textContent =
+        navigator.platform;
+
+
+    /* =====================================
+       USER AGENT
+       ===================================== */
+
+    document.getElementById(
+        "userAgent"
+    ).textContent =
+        navigator.userAgent;
+
+
+    /* =====================================
+       SCREEN SIZE
+       ===================================== */
+
+    document.getElementById(
+        "screenSize"
+    ).textContent =
+        screen.width +
+        " × " +
+        screen.height;
+
+
+    document.getElementById(
+        "detailScreen"
+    ).textContent =
+        screen.width +
+        " × " +
+        screen.height;
+
+
+    /* =====================================
+       ONLINE / OFFLINE STATUS
+       ===================================== */
+
+    function updateOnlineStatus() {
+
+        if (navigator.onLine) {
+
+            document.getElementById(
+                "onlineStatus"
+            ).textContent =
+                "Online";
+
+            document.getElementById(
+                "connectionStatus"
+            ).textContent =
+                "● Online";
+
+        } else {
+
+            document.getElementById(
+                "onlineStatus"
+            ).textContent =
+                "Offline";
+
+            document.getElementById(
+                "connectionStatus"
+            ).textContent =
+                "● Offline";
+
+        }
+
+    }
+
+
+    updateOnlineStatus();
+
+
+    window.addEventListener(
+        "online",
+        updateOnlineStatus
+    );
+
+
+    window.addEventListener(
+        "offline",
+        updateOnlineStatus
+    );
+
+
+    /* =====================================
+       WINDOW INFORMATION
+       ===================================== */
+
+    function updateWindowInfo() {
+
+
+        /* WIDTH */
+
+        document.getElementById(
+            "windowWidth"
+        ).textContent =
+            window.innerWidth + " px";
+
+
+        /* HEIGHT */
+
+        document.getElementById(
+            "windowHeight"
+        ).textContent =
+            window.innerHeight + " px";
+
+
+        /* VIEWPORT */
+
+        document.getElementById(
+            "viewportSize"
+        ).textContent =
+            window.innerWidth +
+            " × " +
+            window.innerHeight;
+
+
+        /* SCROLL X */
+
+        document.getElementById(
+            "scrollX"
+        ).textContent =
+            window.scrollX;
+
+
+        /* SCROLL Y */
+
+        document.getElementById(
+            "scrollY"
+        ).textContent =
+            window.scrollY;
+
+
+        /* SCROLL POSITION CARD */
+
+        document.getElementById(
+            "scrollPosition"
+        ).textContent =
+            window.scrollX +
+            " × " +
+            window.scrollY;
+
+    }
+
+
+    /* Initial display */
+
+    updateWindowInfo();
+
+
+    /* =====================================
+       RESIZE EVENT
+       ===================================== */
+
+    window.addEventListener(
+        "resize",
+        function() {
+
+            updateWindowInfo();
+
+        }
+    );
+
+
+    /* =====================================
+       SCROLL EVENT
+       ===================================== */
+
+    window.addEventListener(
+        "scroll",
+        function() {
+
+            updateWindowInfo();
+
+        }
+    );
+
+
+</script>
+
+
+</body>
+</html>
