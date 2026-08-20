@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Desk</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+        <div class="logo">SD</div>
+
+        <div>
+            <h1>Student Desk</h1>
+            <p>Quick Registration • No Page Reload</p>
+        </div>
+    </header>
+
+    <main>
+
+        <section class="form-area">
+
+            <div class="section-title">
+                <span>01</span>
+                <h2>Register a Student</h2>
+            </div>
+
+            <form id="studentForm">
+
+                <div class="field">
+                    <label>Student Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="e.g. Ezhil Saravanan"
+                    >
+                </div>
+
+                <div class="field">
+                    <label>Register Number</label>
+                    <input
+                        type="text"
+                        id="regno"
+                        placeholder="e.g. 24CSE101"
+                    >
+                </div>
+
+                <div class="row">
+
+                    <div class="field">
+                        <label>Department</label>
+
+                        <select id="dept">
+                            <option value="">Choose department</option>
+                            <option>CSE</option>
+                            <option>ECE</option>
+                            <option>EEE</option>
+                            <option>MECH</option>
+                            <option>CIVIL</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Year</label>
+
+                        <select id="year">
+                            <option value="">Choose year</option>
+                            <option>I Year</option>
+                            <option>II Year</option>
+                            <option>III Year</option>
+                            <option>IV Year</option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <button type="submit">
+                    Add to Desk <span>→</span>
+                </button>
+
+            </form>
+
+        </section>
+
+
+        <section class="profile-area">
+
+            <div class="section-title">
+                <span>02</span>
+                <h2>Student Profile</h2>
+            </div>
+
+            <div id="profile">
+
+                <div class="empty-note">
+                    <div class="paperclip">+</div>
+
+                    <h3>Your profile will appear here</h3>
+
+                    <p>
+                        Fill in the details on the left
+                        and add the student to the desk.
+                    </p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+        <span>DOM PRACTICAL</span>
+        <span>Built with HTML + JavaScript</span>
+    </footer>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
