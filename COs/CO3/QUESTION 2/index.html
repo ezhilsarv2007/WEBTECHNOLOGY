@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Result Portal</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f6f8;
+            color: #222;
+        }
+
+        .topbar {
+            background: #12355b;
+            color: white;
+            padding: 22px 0;
+        }
+
+        .topbar-content {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .topbar h1 {
+            margin: 0;
+            font-size: 26px;
+            font-weight: 600;
+        }
+
+        .topbar p {
+            margin: 6px 0 0;
+            font-size: 14px;
+            color: #dbe5ef;
+        }
+
+        .page {
+            width: 90%;
+            max-width: 900px;
+            margin: 35px auto;
+        }
+
+        .form-card {
+            background: white;
+            border: 1px solid #dfe3e8;
+            padding: 32px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.06);
+        }
+
+        .section-title {
+            font-size: 19px;
+            font-weight: 600;
+            color: #12355b;
+            margin-bottom: 25px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e9edf1;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 22px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #3b4652;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #cbd2d9;
+            border-radius: 4px;
+            font-size: 15px;
+            outline: none;
+            background: #fff;
+        }
+
+        input:focus {
+            border-color: #12355b;
+            box-shadow: 0 0 0 2px rgba(18,53,91,0.08);
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .submit-area {
+            margin-top: 30px;
+            text-align: right;
+        }
+
+        .submit-btn {
+            background: #12355b;
+            color: white;
+            border: none;
+            padding: 13px 25px;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #0d2947;
+            transform: translateY(-1px);
+        }
+
+        .note {
+            margin-top: 18px;
+            font-size: 12px;
+            color: #777;
+        }
+
+        @media(max-width: 650px) {
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 22px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="topbar">
+        <div class="topbar-content">
+            <h1>Student Result Portal</h1>
+            <p>Academic Result Processing System</p>
+        </div>
+    </div>
+
+    <div class="page">
+
+        <div class="form-card">
+
+            <div class="section-title">
+                Student Information
+            </div>
+
+            <form action="StudentResultServlet" method="post">
+
+                <div class="form-row">
+
+                    <div class="form-group">
+                        <label>Student Name</label>
+
+                        <input type="text"
+                               name="name"
+                               placeholder="Enter student name"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Register Number</label>
+
+                        <input type="text"
+                               name="regno"
+                               placeholder="Enter register number"
+                               required>
+                    </div>
+
+                </div>
+
+                <div class="section-title">
+                    Subject Marks
+                </div>
+
+                <div class="subjects">
+
+                    <div class="form-group">
+                        <label>Subject 1</label>
+
+                        <input type="number"
+                               name="mark1"
+                               min="0"
+                               max="100"
+                               placeholder="0 - 100"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject 2</label>
+
+                        <input type="number"
+                               name="mark2"
+                               min="0"
+                               max="100"
+                               placeholder="0 - 100"
+                               required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Subject 3</label>
+
+                        <input type="number"
+                               name="mark3"
+                               min="0"
+                               max="100"
+                               placeholder="0 - 100"
+                               required>
+                    </div>
+
+                </div>
+
+                <div class="submit-area">
+
+                    <button type="submit" class="submit-btn">
+                        Generate Result
+                    </button>
+
+                </div>
+
+                <div class="note">
+                    Enter marks between 0 and 100. Minimum passing mark is 35.
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
