@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <title>Student Registration</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #12355b;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 650px;
+            margin: 35px auto;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #12355b;
+            margin-top: 0;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-size: 15px;
+            box-sizing: border-box;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #12355b;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #12355b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #0d2947;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Student Registration Portal</h1>
+        <p>Student Registration Form</p>
+    </div>
+
+    <div class="container">
+
+        <div class="form-card">
+
+            <h2>Student Details</h2>
+
+            <form action="RegistrationServlet" method="post">
+
+                <label>Student Name</label>
+
+                <input type="text"
+                       name="name"
+                       placeholder="Enter student name">
+
+                <label>Register Number</label>
+
+                <input type="text"
+                       name="regno"
+                       placeholder="Enter register number">
+
+                <label>Email</label>
+
+                <input type="email"
+                       name="email"
+                       placeholder="Enter email address">
+
+                <label>Department</label>
+
+                <select name="department">
+
+                    <option value="">Select Department</option>
+                    <option value="Computer Science and Engineering">
+                        Computer Science and Engineering
+                    </option>
+
+                    <option value="Information Technology">
+                        Information Technology
+                    </option>
+
+                    <option value="Electronics and Communication Engineering">
+                        Electronics and Communication Engineering
+                    </option>
+
+                    <option value="Electrical and Electronics Engineering">
+                        Electrical and Electronics Engineering
+                    </option>
+
+                    <option value="Mechanical Engineering">
+                        Mechanical Engineering
+                    </option>
+
+                </select>
+
+                <label>Semester</label>
+
+                <select name="semester">
+
+                    <option value="">Select Semester</option>
+                    <option value="Semester 1">Semester 1</option>
+                    <option value="Semester 2">Semester 2</option>
+                    <option value="Semester 3">Semester 3</option>
+                    <option value="Semester 4">Semester 4</option>
+                    <option value="Semester 5">Semester 5</option>
+                    <option value="Semester 6">Semester 6</option>
+                    <option value="Semester 7">Semester 7</option>
+                    <option value="Semester 8">Semester 8</option>
+
+                </select>
+
+                <button type="submit">
+                    Register Student
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
