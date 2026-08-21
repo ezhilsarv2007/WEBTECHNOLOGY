@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Student Result</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        .header {
+            background: #12355b;
+            color: white;
+            padding: 22px;
+            text-align: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 850px;
+            margin: 35px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border: 1px solid #ddd;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+        }
+
+        h2 {
+            color: #12355b;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 12px;
+        }
+
+        .row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        label {
+            display: block;
+            margin-top: 18px;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 11px;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            box-sizing: border-box;
+            font-size: 15px;
+        }
+
+        .subjects {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 12px;
+        }
+
+        button {
+            margin-top: 28px;
+            padding: 13px 25px;
+            background: #12355b;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d2947;
+        }
+
+        @media(max-width: 700px) {
+            .row,
+            .subjects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    <h1>Online Student Result Processing</h1>
+    <p>Student Academic Result System</p>
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>Student Details</h2>
+
+        <form action="ResultServlet" method="post">
+
+            <div class="row">
+
+                <div>
+                    <label>Student Name</label>
+                    <input type="text"
+                           name="name"
+                           placeholder="Enter student name">
+                </div>
+
+                <div>
+                    <label>Register Number</label>
+                    <input type="text"
+                           name="regno"
+                           placeholder="Enter register number">
+                </div>
+
+            </div>
+
+            <h2>Subject Marks</h2>
+
+            <div class="subjects">
+
+                <div>
+                    <label>Subject 1</label>
+                    <input type="text"
+                           name="mark1"
+                           placeholder="0-100">
+                </div>
+
+                <div>
+                    <label>Subject 2</label>
+                    <input type="text"
+                           name="mark2"
+                           placeholder="0-100">
+                </div>
+
+                <div>
+                    <label>Subject 3</label>
+                    <input type="text"
+                           name="mark3"
+                           placeholder="0-100">
+                </div>
+
+                <div>
+                    <label>Subject 4</label>
+                    <input type="text"
+                           name="mark4"
+                           placeholder="0-100">
+                </div>
+
+                <div>
+                    <label>Subject 5</label>
+                    <input type="text"
+                           name="mark5"
+                           placeholder="0-100">
+                </div>
+
+            </div>
+
+            <button type="submit">
+                Calculate Result
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+</body>
+</html>
